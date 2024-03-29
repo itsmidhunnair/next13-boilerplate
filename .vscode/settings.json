@@ -1,8 +1,107 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll": "always"
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "eslint.validate": ["javascript", "typescript"],
   "workbench.colorTheme": "One Dark Pro Darker",
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "commit-message-editor.staticTemplate": [
+    "feat:(scope)[jira_id] - Short description",
+    "",
+    "Message body"
+  ],
+  "commit-message-editor.dynamicTemplate": [
+    "{type}{scope}{jira_id} - {description}",
+    "",
+    "{body}"
+  ],
+  "commit-message-editor.tokens": [
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "options": [
+        {
+          "label": "---",
+          "value": ""
+        },
+        {
+          "label": "build",
+          "description": "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)"
+        },
+        {
+          "label": "chore",
+          "description": "Updating grunt tasks etc; no production code change"
+        },
+        {
+          "label": "ci",
+          "description": "Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)"
+        },
+        {
+          "label": "docs",
+          "description": "Documentation only changes"
+        },
+        {
+          "label": "feat",
+          "description": "A new feature"
+        },
+        {
+          "label": "fix",
+          "description": "A bug fix"
+        },
+        {
+          "label": "perf",
+          "description": "A code change that improves performance"
+        },
+        {
+          "label": "refactor",
+          "description": "A code change that neither fixes a bug nor adds a feature"
+        },
+        {
+          "label": "revert"
+        },
+        {
+          "label": "style",
+          "description": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
+        },
+        {
+          "label": "test",
+          "description": "Adding missing tests or correcting existing tests"
+        }
+      ],
+      "description": "Type of changes"
+    },
+    {
+      "label": "Scope",
+      "name": "scope",
+      "description": "A scope may be provided to a commit’s type, to provide additional contextual information and is contained within parenthesis, e.g., \"feat(parser): add ability to parse arrays\".",
+      "type": "text",
+      "multiline": false,
+      "prefix": "(",
+      "suffix": ")"
+    },
+    {
+      "label": "Jira Id",
+      "name": "jira_id",
+      "type": "text",
+      "description": "Your Jira Ticket Id \neg: If your ticket id is \"CTMAR-247\", just add 247",
+      "prefix": "[CTMAR-",
+      "suffix": "]"
+    },
+    {
+      "label": "Message",
+      "name": "description",
+      "type": "text",
+      "description": "Your commit message in single line"
+    },
+    {
+      "label": "Body",
+      "name": "body",
+      "type": "text",
+      "description": "Describe your commit message"
+    }
+  ]
 }
